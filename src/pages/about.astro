@@ -1,14 +1,43 @@
+---
+const pageTitle = 'About Me';
+
+const identity = {
+  name: 'Gustavo',
+  location: 'Colombia',
+  occupation: 'Software Engineer',
+  hobbies: ['Reading', 'Coding', 'Gaming'],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Node.js", "Express", "MongoDB", "Python", "Django", "Flask", "SQL", "Git", "GitHub", "Netlify", "Vercel", "Mocha", "Docker", "AWS", "Azure", "Firebase", "Postman"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="geneta" content={Astro.generator} />
-    <title>About</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
-    <h1>About</h1>
-    <p>This is the about page</p>
     <a href="/">Home</a>
-    <a href="/blog">Blog</a>
-  </body>
-</html>
+    <a href="/about/">About</a>
+    <a href="/blog/">Blog</a>
+    <h1>About Me</h1>
+    <h2>... and my new Astro site!</h2>
+
+    <p>
+      Hi! I'm {identity.name}, a {identity.occupation} from {identity.location}. I enjoy {identity.hobbies.join(', ')}.
+    </p>
+
+    <h2>Skills</h2>
+    <ul>
+      {skills.map((skill) => (
+        <li>{skill}</li>
+      ))}
+    </ul>
+
+    {happy && <p>I'm happy to be here!</p>}
+    {finished ? <p>I'm done!</p> : <p>I'm still working...</p>}
+    {goal === 3 ? <p>I've reached my goal!</p> : <p>I'm still working on my goal...</p>}
